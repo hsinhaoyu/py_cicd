@@ -17,13 +17,13 @@ code-lint: pre-commit-update
 	pre-commit run flake8 --all-files
 
 code-typing:
-	mypy --pretty src
+	mypy --pretty xyz
 
 test::
 	python -m pytest --exitfirst
 
 test-cov::
-	python -m pytest --cov=src  --exitfirst -vv --cov-report=xml
+	python -m pytest --cov=xyz  --exitfirst -vv --cov-report=xml
 
 mdformat: pre-commit-update
 	pre-commit run mdformat --all-files
