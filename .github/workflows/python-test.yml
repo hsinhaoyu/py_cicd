@@ -82,7 +82,7 @@ jobs:
       run: |
         make test
     - name: Pytest Cov
-      # if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == '3.7' }}
+      if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == '3.7' }}
       run: |
         make test-cov
     - name: Upload artifact
