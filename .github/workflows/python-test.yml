@@ -53,8 +53,8 @@ jobs:
         include:
         - os: ubuntu-latest
           path: ~/.cache/pip
-        - os: macos-latest
-          path: ~/Library/Caches/pip
+        #- os: macos-latest
+        #  path: ~/Library/Caches/pip
         python-version: [3.7]
     steps:
     - name: Don't mess with line endings
