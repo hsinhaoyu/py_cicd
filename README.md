@@ -1,3 +1,5 @@
+[![CI/CD](https://github.com/hsinhaoyu/py_cicd/actions/workflows/python-test.yml/badge.svg)](https://github.com/hsinhaoyu/py_cicd/actions/workflows/python-test.yml)
+
 # A minimal CI/CD setup for Python
 
 This is just a test repo for me to experiment with CI/CD
