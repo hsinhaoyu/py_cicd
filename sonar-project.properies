@@ -1,0 +1,4 @@
+sonar-organisation=hsinhaoyu
+sonar-projectKey=hsinhaoyu_py_cicd
+
+sonar-sources=.
