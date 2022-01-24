@@ -2,7 +2,7 @@
 
 This is just a test repo for me to experiment with CI/CD
 
-## How to
+## Basic operations
 
 - To install the package: `pip install -e .`
 - To reformat code: `make code-format`
