@@ -19,6 +19,7 @@ This is just a test repo for me to experiment with CI/CD
 #### Git pre-commit hooks
 
 - `.pre-commit-config.yaml`: Config for [`pre-commit`](https://pre-commit.com)
+- After checking out the repo, run `make pre-commit` or `pre-commit install` to install the hooks
 
 #### Python dependencies ([`setuptools`](https://setuptools.pypa.io/en/latest/userguide/index.html))
 
