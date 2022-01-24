@@ -1,0 +1,93 @@
+name: pull-request pipeline
+on:
+  pull_request:
+  push:
+    branches:
+      - develop
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Don't mess with line endings
+      run: |
+        git config --global core.autocrlf false
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ubuntu-latest-3.9-pip-${{ hashFiles('setup.cfg') }}
+        restore-keys: |
+          ubuntu-latest-3.9-pip-
+    - name: Install build tools
+      run: |
+        make develop
+    - name: Setup pre-commit
+      run: |
+        make pre-commit
+    - name: Install dependencies
+      run: |
+        make install
+    - name: Run md document formatting (mdformat)
+      run: |
+        make mdformat
+    - name: Run code formatting (yapf)
+      run: |
+        make code-format
+    - name: Run code linting (flake8)
+      run: |
+        make code-lint
+    - name: Run code typing check (mypy)
+      continue-on-error: true
+      run: |
+        make code-typing
+  test:
+    # This test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        include:
+        - os: ubuntu-latest
+          path: ~/.cache/pip
+        - os: macos-latest
+          path: ~/Library/Caches/pip
+        python-version: [3.7]
+    steps:
+    - name: Don't mess with line endings
+      run: |
+        git config --global core.autocrlf false
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+        submodules: true
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - uses: actions/cache@v2
+      with:
+        path: ${{ matrix.path }}
+        key: ${{ matrix.os }}-${{ matrix.python-version }}-pip-${{ hashFiles('setup.cfg') }}
+        restore-keys: |
+         ${{ matrix.os }}-${{ matrix.python-version }}-pip-
+    - name: Install build tools
+      run: |
+        make develop
+    - name: Pytest Fast
+      if: ${{ !(matrix.os == 'ubuntu-latest' && matrix.python-version == '3.7') }}
+      run: |
+        make test
+    - name: Pytest Cov
+      if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == '3.7' }}
+      run: |
+        make test-cov
+    - name: Upload artifact
+      if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == '3.7' }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage
+        path: coverage.xml
