@@ -130,8 +130,8 @@ jobs:
       with:
         args: >
           -Dsonar.python.coverage.reportPaths=coverage.xml
-          -Dsonar.tests=tests/
-          -Dsonar.sources=xyz/ 
+          -Dsonar.tests=tests
+          -Dsonar.sources=xyz 
           -Dsonar.python.version=3.7
           -Dsonar.projectKey=hsinhaoyu_py_cicd
           -Dsonar.organization=hsinhaoyu
