@@ -1,4 +1,5 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=hsinhaoyu_py_cicd&metric=coverage)](https://sonarcloud.io/summary/new_code?id=hsinhaoyu_py_cicd)
+[![Build](https://github.com/hsinhaoyu/py_cicd/actions/workflows/pull-request.yml/badge.svg)](https://github.com/hsinhaoyu/py_cicd/actions/workflows/pull-request.yml)
 
 # A minimal CI/CD setup for Python
 
