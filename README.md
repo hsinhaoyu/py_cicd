@@ -1,8 +1,3 @@
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=hsinhaoyu_py_cicd&metric=coverage)](https://sonarcloud.io/summary/new_code?id=hsinhaoyu_py_cicd)
-!\[GitHub Actions status\](https://img.shields.io/github/workflow/status/https://github.com/hsinhaoyu/py_cicd
-
-IBM/compliance-trestle/Trestle%20PR%20pipeline?event=push)
-
 # A minimal CI/CD setup for Python
 
 This is just a test repo for me to experiment with CI/CD
