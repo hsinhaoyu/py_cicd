@@ -78,11 +78,11 @@ jobs:
       run: |
         make develop
     - name: Pytest Fast
-      # if: ${{ !(matrix.os == 'ubuntu-latest' && matrix.python-version == '3.7') }}
+      if: ${{ !(matrix.os == 'ubuntu-latest' && matrix.python-version == '3.7') }}
       run: |
         make test
     - name: Pytest Cov
-      # if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == '3.7' }}
+      if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == '3.7' }}
       run: |
         make test-cov
     - name: Upload artifact
@@ -91,3 +91,53 @@ jobs:
       with:
         name: coverage
         path: coverage.xml
+  sonar:
+    if: ${{ github.event.pull_request.base.repo.url == github.event.pull_request.head.repo.url }}
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - name: Don't mess with line endings
+      run: |
+        git config --global core.autocrlf false
+    - name: Don't mess with line endings
+      run: |
+        git config --global core.autocrlf false
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+    - uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ubuntu-latest-3.9-pip-${{ hashFiles('setup.cfg') }}
+        restore-keys: |
+          ubuntu-latest-3.9-pip-
+    - name: Install build tools
+      run: |
+        make develop
+    - name: Get coverage
+      uses: actions/download-artifact@v2
+      with:
+        name: coverage
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      with:
+        args: >
+          -Dsonar.python.coverage.reportPaths=coverage.xml
+          -Dsonar.tests=tests
+          -Dsonar.sources=xyz 
+          -Dsonar.python.version=3.7
+          -Dsonar.projectKey=hsinhaoyu_py_cicd
+          -Dsonar.organization=hsinhaoyu
+    - name: SonarQube Quality Gate check
+      uses: sonarsource/sonarqube-quality-gate-action@master
+      # Force to fail step after specific time
+      timeout-minutes: 5
+      env:
+       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
