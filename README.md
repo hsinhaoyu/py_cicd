@@ -1,6 +1,6 @@
 # A minimal CI/CD setup for Python
 
-This is just a test repo for me to experiment with CI/CD
+This is just a test repo for me to experiment with CI/CD.
 
 ## Basic operations
 
