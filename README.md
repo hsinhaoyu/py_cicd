@@ -1,4 +1,4 @@
-[![CI/CD](https://github.com/hsinhaoyu/py_cicd/actions/workflows/python-test.yml/badge.svg)](https://github.com/hsinhaoyu/py_cicd/actions/workflows/python-test.yml)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=hsinhaoyu_py_cicd&metric=coverage)](https://sonarcloud.io/summary/new_code?id=hsinhaoyu_py_cicd)
 
 # A minimal CI/CD setup for Python
 
