@@ -23,7 +23,7 @@ test::
 	python -m pytest --exitfirst
 
 test-cov::
-	python -m pytest --cov tests/  --exitfirst -vv --cov-report=xml
+	python -m pytest --cov=xyz  --exitfirst -vv --cov-report=xml
 
 mdformat: pre-commit-update
 	pre-commit run mdformat --all-files
