@@ -1,3 +1,7 @@
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=hsinhaoyu_py_cicd&metric=coverage)](https://sonarcloud.io/summary/new_code?id=hsinhaoyu_py_cicd)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=hsinhaoyu_py_cicd&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=hsinhaoyu_py_cicd)
+![GitHub Actions status](https://img.shields.io/github/workflow/status/hsinhaoyu/py_cicd/Deploy)
+
 # A minimal CI/CD setup for Python
 
 This is just a test repo for me to experiment with CI/CD.
