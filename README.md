@@ -6,6 +6,8 @@
 
 This is just a test repo for me to experiment with CI/CD. The CI/CD pipelines are mostly based on those developed for the [IBM Compliance Trestle](https://github.com/IBM/compliance-trestle).
 
+This setup include the generation of [documents](https://hsinhaoyu.github.io/py_cicd/).
+
 ## Basic operations
 
 - To install the package: `pip install -e .`
