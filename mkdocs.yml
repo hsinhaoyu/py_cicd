@@ -7,6 +7,7 @@ nav:
   - Analysis: analysis.md
 
 plugins:
+- search
 - mkdocstrings:
     handlers:
       python:
