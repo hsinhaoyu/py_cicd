@@ -1,8 +1,10 @@
 """Module for exploratory data analysis."""
+import pandas as pd
+
 from ..preprocessing import data_utils
 
 
-def sum_all(df):
+def sum_all(df: pd.DataFrame) -> float:
     """Sum all values in the dataframe df.
 
     args:
