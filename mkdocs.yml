@@ -1,0 +1,32 @@
+nav:
+- Home: index.md
+- Installation: installation.md
+- Notes: notes.md
+- Reference:
+  - Preprocessing: preprocessing.md
+  - Analysis: analysis.md
+
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        rendering:
+          group_by_category: true
+          show_category_heading: true
+          show_if_no_docstring: true
+          show_root_heading: true
+        selection:
+          filters:
+          - '!^_[^_]'
+          - '!^__json'
+          - '!^__config__'
+          new_path_syntax: true
+    watch:
+    - xyz
+
+repo_name: hsinhaoyu/py_cicd
+repo_url: https://github.com/hsinhaoyu/py_cicd
+site_description: Documentation for my CI/CD project
+site_name: My Project
+theme:
+    name: material
