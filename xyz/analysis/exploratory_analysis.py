@@ -3,7 +3,14 @@ from ..preprocessing import data_utils
 
 
 def sum_all(df):
-    """Sum all values in the dataframe df."""
+    """Sum all values in the dataframe df.
+
+    args:
+        df: a Pandas dataframe
+
+    returns:
+        A numerical value
+    """
     vals = df.values
     return vals.sum()
 
