@@ -4,7 +4,7 @@
 
 # A minimal CI/CD setup for Python
 
-This is just a test repo for me to experiment with CI/CD.
+This is just a test repo for me to experiment with CI/CD. The CI/CD pipelines are mostly based on those developed for the [IBM Compliance Trestle](https://github.com/IBM/compliance-trestle).
 
 ## Basic operations
 
@@ -36,4 +36,4 @@ Notes:
 - See [this article](https://godatadriven.com/blog/a-practical-guide-to-using-setup-py/) for more details on setuptools
 - `install_requires=` in the `[options]` section of `setup.cfg` lists the files that will be installed with `pip install .` or `pip install -e .`
 - The `-e` flag puts `pip install` in the _editable mode_.
-- The `[options.extras_require]` section of `setup.cfg` defines a set of packages (named `dev`) that will be installed with `pip install -e .[dev]`.
+- The `[options.extras_require]` section of `setup.cfg` defines a set of packages (named `dev`) that will be installed with `pip install -e ".[dev]"`.

@@ -27,3 +27,10 @@ test-cov::
 
 mdformat: pre-commit-update
 	pre-commit run mdformat --all-files
+
+docs-validate::
+	mkdocs build -c -s
+	rm -rf site
+
+docs-serve:
+	mkdocs serve
