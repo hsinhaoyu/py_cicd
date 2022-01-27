@@ -140,4 +140,4 @@ jobs:
     - name: Create release
       shell: bash
       run: |
-        mkdocs gh-deploy
+        mkdocs gh-deploy -f
